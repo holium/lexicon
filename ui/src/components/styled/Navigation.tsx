@@ -15,6 +15,7 @@ import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 const Navigation = () => {
   const { ship, group, word } = useParams();
   const navigate = useNavigate();
+  const { setModalOpen } = useLexiconStore();
   const popup = useLexiconStore((state) => state.popup);
 
   return (
@@ -26,9 +27,16 @@ const Navigation = () => {
       )}
       <IconBreadcrumbs group={group} ship={ship} word={word} />
 
-      <Stack direction="row" spacing={1} alignItems="flex-start" marginTop={2}>
+      <Stack direction="row" spacing={1} alignItems="flex-start" marginTop={1}>
         <Search />
-      
+        <Button
+          size="small"
+          variant="contained"
+          sx={{ height: 38 }}
+          onClick={() => setModalOpen(true)}
+        >
+          Add word
+        </Button>
       </Stack>
       <Outlet />
     </>
@@ -42,7 +50,6 @@ function IconBreadcrumbs({ group, ship, word }: any) {
     <Breadcrumbs
       aria-label="breadcrumb"
       separator={<NavigateNextIcon fontSize="small" />}
-      sx={{ marginTop: 1 }}
     >
       <Link
         underline="hover"

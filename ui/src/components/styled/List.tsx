@@ -1,8 +1,5 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import Typography from "@mui/material/Typography";
-import Paper from "@mui/material/Paper";
-import Stack from "@mui/material/Stack";
 
 interface ListProps {
   items: {
@@ -16,30 +13,21 @@ const List = ({ items }: ListProps) => {
 
   return (
     <>
-      <Stack direction="column" spacing={1} paddingBottom={5}>
-        {items.map((item, index) => {
+      <nav aria-label="Main Nav" className="flex flex-col space-y-1">
+        {items.map((item, i) => {
           return (
-            <Paper
-              key={index}
-              variant="outlined"
-              sx={{ padding: "4px 10px", cursor: "pointer", width: "100%" }}
+            <a
+              key={i}
               onClick={() => navigate("/apps/lexicon/" + item.navlink)}
+              className="block rounded-lg px-4 py-2 text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700"
             >
-              <Typography
-                variant="subtitle1"
-                fontWeight={"bold"}
-                color="text.secondary"
-                sx={{ wordBreak: "break-word" }}
-              >
-                {item.label}
-              </Typography>
-            </Paper>
+              {item.label}
+            </a>
           );
         })}
-      </Stack>
+      </nav>
     </>
   );
 };
-/*
- */
+
 export default List;

@@ -55,9 +55,10 @@ const AddModal = () => {
       <DialogContent>
         <TextField
           sx={{ marginTop: 1 }}
+          spellCheck="true"
           error={false}
           size="small"
-          id="word"
+          id="name"
           label="Word"
           type="text"
           value={word}
@@ -71,7 +72,7 @@ const AddModal = () => {
           spellCheck="true"
           error={false}
           size="small"
-          id="definition"
+          id="name"
           label="Definition"
           type="text"
           value={def}
@@ -85,7 +86,7 @@ const AddModal = () => {
           spellCheck="true"
           error={false}
           size="small"
-          id="example-sentence"
+          id="name"
           label="Example Sentence"
           type="text"
           value={sentence}
@@ -99,7 +100,7 @@ const AddModal = () => {
           spellCheck="true"
           error={false}
           size="small"
-          id="related-words"
+          id="name"
           label="Related Words(apple,lemon,orange)"
           type="text"
           value={related}
@@ -132,3 +133,5 @@ const AddModal = () => {
 };
 
 export default AddModal;
+
+
